@@ -1,0 +1,29 @@
+.cabecalho__container{
+    display: flex;
+    align-items: center;/*centraliza na vertical*/
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+}
+
+.rodape__container{
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap; /* o flex-wrap permite quebrarmos
+                    colunas em mais colunas ou linhas*/
+}              
+/*Pode ser utilizado, no lugar do "flex-direction" e
+"flex-wrap" a propriedade "flex-flow"*/
+
+.cabecalho__pesquisar__item{ display: none; }
+
+@media(min-width: 834px){
+    .cabecalho__pesquisar__item{
+        display: block;
+
+    }
+    .rodape__container{
+        justify-content: space-between;
+    }
+}
+
