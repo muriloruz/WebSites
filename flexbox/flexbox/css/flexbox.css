@@ -11,11 +11,70 @@
     flex-direction: column;
     flex-wrap: wrap; /* o flex-wrap permite quebrarmos
                     colunas em mais colunas ou linhas*/
+    
 }              
 /*Pode ser utilizado, no lugar do "flex-direction" e
 "flex-wrap" a propriedade "flex-flow"*/
 
 .cabecalho__pesquisar__item{ display: none; }
+
+.superior__secao__container{
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    /* Queremos que as palavras fiquem alinhadas, mas nesse caso não é ideal utilizarmos o flex-wrap com o valor nowrap. 
+    Isso porque o Flexbox não é feito para formatar textos, 
+    e existem propriedades específicas para isso. Uma delas é o white-space, 
+    à qual atribuiremos o valor nowrap.*/
+    overflow: scroll; 
+    /*Para aplicarmos essa barra no projeto em desenvolvimento, 
+    usaremos a propriedade overflow com o valor scroll.*/
+    gap: 15px;
+    /*a propriedade gap aplica o espaçamento apenas entre 
+    os itens, e não nas extremidades. Você a deve inserir no 
+    pai dos itens que deseja aplicar espaçamento.*/
+}
+
+.menu__container{
+    position: fixed;
+    bottom: 0%;
+    height: 74px;
+    width: 100%;
+    
+}
+
+.menu__lista{
+    display: flex;
+    justify-content:space-around;
+    height: 100%;
+}
+
+.menu__lista li {
+    align-self: center;
+    /*com o align-self eu posso alinhar os items filhos de maneiras diferentes*/
+}
+
+.menu__lista:nth-child(2),
+.menu__lista:nth-child(3),
+.menu__lista:nth-child(4){
+    display:none;
+}
+.videos__item{
+    height: 303px;
+    width: 280px;
+    flex-grow: 1;
+}
+.videos__container{
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.menu__itens{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
 
 @media(min-width: 834px){
     .cabecalho__pesquisar__item{
@@ -25,5 +84,54 @@
     .rodape__container{
         justify-content: space-between;
     }
+    .menu__container {
+        left: 0;
+        height: auto;
+        width: 74px;
+        top: 80px;
+    }
+    
+    .menu__lista {
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 15px;
+        gap: 33px;
+    }
 }
 
+@media(min-width:1400px){
+    .menu__container {
+        width:239px;
+        overflow: scroll;
+    }
+    .menu__lista:nth-child(2),
+    .menu__lista:nth-child(3),
+    .menu__lista:nth-child(4){
+        display:flex;
+    }
+    .menu__lista{
+        height: auto;
+        padding: 20px 17px 20px 15px;
+        gap: 15px;
+    }
+    .menu__itens{
+        flex-direction: row;
+        gap: 15px;
+        align-items:center;
+    }
+    .menu__lista:nth-child(3){
+        flex-direction: column-reverse;
+    }
+    .jogos{
+        order: 3;
+    }
+    .filmes{
+        order: 2;
+    }
+    .premium{
+        order:1;
+    }
+    .maispagina{
+        order:4;
+    }
+}
